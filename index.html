@@ -275,6 +275,125 @@
                 height: 342;
             }
         }
+        /* The Modal (background) */
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            padding-top: 100px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(255, 255, 255);
+        }
+        /* Modal Content */
+        
+        .modal-content {
+            position: relative;
+            background-color: #fefefe;
+            margin: auto;
+            padding: 0;
+            max-width: 400px;
+            height: auto;
+        }
+        /* The Close Button */
+        
+        .close {
+            color: rgb(0, 0, 0);
+            position: absolute;
+            top: 10px;
+            right: 25px;
+            font-size: 35px;
+            font-weight: bold;
+        }
+        
+        .close:hover,
+        .close:focus {
+            color: #999;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        
+        .mySlides {
+            display: none;
+        }
+        
+        .cursor {
+            cursor: pointer;
+        }
+        /* Next & previous buttons */
+        
+        .prev,
+        .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -50px;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.4);
+            font-weight: bold;
+            font-size: 20px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+        /* Position the "next button" to the right */
+        
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+        /* On hover, add a black background color with a little bit see-through */
+        
+        .prev:hover,
+        .next:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+        /* Number text (1/3 etc) */
+        
+        .numbertext {
+            color: #f2f2f2;
+            font-size: 12px;
+            padding: 8px 12px;
+            position: absolute;
+            top: 0;
+        }
+        
+        .caption-container {
+            text-align: center;
+            background-color: rgb(255, 255, 255);
+            padding: 2px 16px;
+            color: rgb(0, 0, 0);
+        }
+        
+        .demo {
+            opacity: 0.6;
+        }
+        
+        .active,
+        .demo:hover {
+            opacity: 1;
+        }
+        
+        img.hover-shadow {
+            transition: 0.3s;
+        }
+        
+        .hover-shadow:hover {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+        
+        .responsive {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+        }
     </style>
     <script src="https://luisangelmaciel.github.io/js/compressed.js"></script>
     <script src="https://luisangelmaciel.github.io/preloader.js"></script>
@@ -284,6 +403,15 @@
 </head>
 
 <body>
+    <!-- Top menu on small screens -->
+    <header class="w3-container w3-top w3-white w3-medium">
+        <span class="w3-left w3-padding">Verónica Collado Crisolia</span>
+        <p onclick="openName(event, 'home')" id="defaultOpen" class="w3-right w3-button w3-white">☰</p>
+    </header>
+
+
+
+
 
     <div class="containerOK">
         <div class="scrollmenu ">
@@ -340,64 +468,69 @@
                         </span><br>Verónica Collado Crisolia
                     </h2>
 
+
                     <div style="padding: 1rem; margin-top: 1rem!; margin-bottom: 1rem!; margin-top: 1rem!; margin-bottom: 1rem; border-radius: .25rem; " id="publicaciones">
                         <ul style=" padding-left: 2rem;  margin-top: 0; margin-bottom: 1rem; list-style-type: none;  margin: 0;  padding: 0;">
                             <li w3-repeat="hiHelloMaciel" style="list-style-type: none;  margin: 0;  padding: 0;">
                                 <div style="display: flex; padding-top: 1rem">
-                                    <img src="img/twitter-avatar.jpg" width="32" height="32" style="vertical-align: middle; margin-right: .5rem; flex-shrink: 0; border-radius: .25rem; ">
-                                    <p style=" margin-top: 0; margin-bottom: 1rem; padding-bottom: 1rem;  font-size: .1.25em; margin-bottom: 0;  line-height: 1.25; width: 100%;">
-                                        <strong style=" font-weight: bolder; display: block ">Verónica Collado Crisolia<span style="font-weight: 100;">
+                                    <img src="img/twitter-avatar.jpg" width="32" height="32" style="vertical-align: middle; margin-right: .5rem; flex-shrink: 0; border-radius: .25rem; " onclick="openModal();currentSlide(4)">
+                                    <p style=" margin-top: 0; margin-bottom: 1rem; padding-bottom: 1rem; font-size: .1.25em; margin-bottom: 0; line-height: 1.25; width: 100%; ">
+                                        <strong style=" font-weight: bolder; display: block ">Verónica Collado Crisolia<span style="font-weight: 100; ">
                              29 Mayo 2022                   </span>
-                             <span style="font-weight: 100;">   
+                             <span style="font-weight: 100; ">   
                               </span>
                             </strong>
 
                                         <br> En compañía de la compañera Diputada Adela Ramos del Distrito II de Chiapas con algunos otros compañeros y compañeras del Grupo parlamentario de Morena. ¡Con el pueblo todo, sin el pueblo nada!
-                                        <a class="a-post" href=" https://twitter.com/VeroColladoMx/status/1531346984422064129 " target="_blank"><b>Ver en Twitter</b></a>
+                                        <a class="a-post " href=" https://twitter.com/VeroColladoMx/status/1531346984422064129 " target="_blank "><b>Ver en Twitter</b></a>
                                 </div>
                                 <div style=" background-color: transparent;overflow: auto; white-space: nowrap; margin-left: 2.5rem; ">
                                     <img style="display: inline-block; color: transparent; " class="hover-shadow cursor " src="img/29052022a.jpg " width="217px " height="195px " loading="lazy " class="lazy loading " alt="¡Con el pueblo todo, sin el
-                                            pueblo nada! " onclick="onClick(this) ">
-                                    <img style="display: inline-block; color: transparent; " class="hover-shadow cursor " src="img/29052022b.jpg " width="217px " height="195px " loading="lazy " class="lazy loading " alt="¡Con el pueblo todo, sin el
-                                            pueblo nada! " onclick="onClick(this) ">
-                                    <img style="display: inline-block; color: transparent; " class="hover-shadow cursor " src="img/29052022c.jpg " width="217px " height="195px " loading="lazy " class="lazy loading " alt="¡Con el pueblo todo, sin el
-                                            pueblo nada! " onclick="onClick(this) ">
+                                        pueblo nada! " onclick="openModal();currentSlide(1) ">
+                                    <img style=" display: inline-block; color: transparent; " class="hover-shadow cursor " src="img/29052022b.jpg " width="217px " height="195px " loading="lazy " class="lazy loading " alt="¡Con el pueblo todo, sin el
+                                        pueblo nada! " onclick="openModal();currentSlide(2) ">
+                                    <img style=" display: inline-block; color: transparent; " class="hover-shadow cursor " src="img/29052022c.jpg " width="217px " height="195px " loading="lazy " class="lazy loading " alt="¡Con el pueblo todo, sin el
+                                        pueblo nada! " onclick="openModal();currentSlide(3)">
 
                                 </div>
                             </li>
                         </ul>
                     </div>
 
-                    <div style="padding: 1rem; margin-top: 1rem!; margin-bottom: 1rem!; margin-top: 1rem!; margin-bottom: 1rem; border-radius: .25rem; " id="publicaciones">
-                        <ul style=" padding-left: 2rem;  margin-top: 0; margin-bottom: 1rem; list-style-type: none;  margin: 0;  padding: 0;">
-                            <li w3-repeat="hiHelloMaciel" style="list-style-type: none;  margin: 0;  padding: 0;">
-                                <div style="display: flex; padding-top: 1rem">
-                                    <img src="img/twitter-avatar.jpg" width="32" height="32" style="vertical-align: middle; margin-right: .5rem; flex-shrink: 0; border-radius: .25rem; ">
-                                    <p style=" margin-top: 0; margin-bottom: 1rem; padding-bottom: 1rem;  font-size: .1.25em; margin-bottom: 0;  line-height: 1.25; width: 100%;">
-                                        <strong style=" font-weight: bolder; display: block ">Verónica Collado Crisolia<span style="font-weight: 100;">
+                    <div style=" padding: 1rem; margin-top: 1rem!; margin-bottom: 1rem!; margin-top: 1rem!; margin-bottom: 1rem; border-radius: .25rem; " id="publicaciones ">
+                        <ul style=" padding-left: 2rem; margin-top: 0; margin-bottom: 1rem; list-style-type: none; margin: 0; padding: 0; ">
+                            <li w3-repeat="hiHelloMaciel " style="list-style-type: none; margin: 0; padding: 0; ">
+                                <div style="display: flex; padding-top: 1rem ">
+                                    <img src="img/twitter-avatar.jpg " width="32 " height="32 " style="vertical-align: middle; margin-right: .5rem; flex-shrink: 0; border-radius: .25rem; ">
+                                    <p style=" margin-top: 0; margin-bottom: 1rem; padding-bottom: 1rem; font-size: .1.25em; margin-bottom: 0; line-height: 1.25; width: 100%; ">
+                                        <strong style=" font-weight: bolder; display: block ">Verónica Collado Crisolia<span style="font-weight: 100; ">
                              28 Octubre 2021                   </span>
-                             <span style="font-weight: 100;">   
+                             <span style="font-weight: 100; ">   
                               </span>
                             </strong>
 
                                         <br> Presentación de iniciativa que Reforma el artículo 4°de la Constitución Política de los Estados Unidos Mexicanos
-                                        <b onclick="document.getElementById('id05').style.display='block'">Ver</b>
+                                        <b onclick="document.getElementById( 'id05').style.display='block' ">Ver</b>
                                 </div>
                                 <div style="background-color: transparent;overflow: auto; white-space: nowrap; margin-left: 2.5rem; ">
-                                    <img style="display: inline-block; color: transparent;" class="hover-shadow cursor" src="img/preview.jpg" width="217px" height="195px" loading="lazy" class="lazy loading" alt="Verónica Collado Crisolia" onclick="onClick(this)">
-                                    <img style="display: inline-block; color: transparent;" class="hover-shadow cursor" src="img/preview.jpg" width="217px" height="195px" loading="lazy" class="lazy loading" alt="Verónica Collado Crisolia" onclick="onClick(this)">
-                                    <img style="display: inline-block; color: transparent;" class="hover-shadow cursor" src="img/preview.jpg" width="217px" height="195px" loading="lazy" class="lazy loading" alt="Verónica Collado Crisolia" onclick="onClick(this)">
-                                    <img style="display: inline-block; color: transparent;" class="hover-shadow cursor" src="img/preview.jpg" width="217px" height="195px" loading="lazy" class="lazy loading" alt="Verónica Collado Crisolia" onclick="onClick(this)">
+                                    <img style="display: inline-block; color: transparent; " class="hover-shadow cursor " src="img/preview.jpg " width="217px " height="195px " loading="lazy " class="lazy loading " alt="Verónica Collado Crisolia
+                                        " onclick="openModal();currentSlide(5) ">
+                                    <img style="display: inline-block; color: transparent; " class="hover-shadow cursor " src="img/preview.jpg " width="217px " height="195px " loading="lazy " class="lazy loading " alt="Verónica Collado Crisolia
+                                        " onclick="onClick(this) ">
+                                    <img style="display: inline-block; color: transparent; " class="hover-shadow cursor " src="img/preview.jpg " width="217px " height="195px " loading="lazy " class="lazy loading " alt="Verónica Collado Crisolia
+                                        " onclick="onClick(this) ">
+                                    <img style="display: inline-block; color: transparent; " class="hover-shadow cursor " src="img/preview.jpg " width="217px " height="195px " loading="lazy " class="lazy loading " alt="Verónica Collado Crisolia
+                                        " onclick="onClick(this) ">
                                 </div>
                             </li>
 
-                            <div id="id05" class="w3-modal">
-                                <div class="w3-modal-content">
-                                    <div class="w3-container">
-                                        <span onclick="document.getElementById('id05').style.display='none'" class="w3-button w3-display-topright">&times;</span>
-                                        <div class="container-iframe">
-                                            <iframe class="responsive-iframe" src="https://diputadosmorena.org.mx/intervencion-desde-tribuna-de-la-diputada-veronica-collado-crisolia-integrante-del-grupo-parlamentario-de-morena-para-presentar-iniciativa-que-reforma-el-articulo-4-de-la-constitucion-politica/">
-                                                <span onclick="document.getElementById('id05').style.display='none'" class="w3-button w3-display-topright">Cerrar</span>
+                            <div id="id05 " class="w3-modal ">
+                                <div class="w3-modal-content ">
+                                    <div class="w3-container ">
+                                        <span onclick="document.getElementById( 'id05').style.display='none' " class="w3-button w3-display-topright ">&times;</span>
+                                        <div class="container-iframe ">
+                                            <iframe class="responsive-iframe " src="https://diputadosmorena.org.mx/intervencion-desde-tribuna-de-la-diputada-veronica-collado-crisolia-integrante-del-grupo-parlamentario-de-morena-para-presentar-iniciativa-que-reforma-el-articulo-4-de-la-constitucion-politica/ ">
+                                                <span onclick="document.getElementById( 'id05').style.display='none' " class="w3-button w3-display-topright ">Cerrar</span>
                                             </iframe>
                                         </div>
 
@@ -869,7 +1002,110 @@
             <p id="caption"></p>
         </div>
     </div>
+    <div id="myModal " class="modal ">
+        <span class="close cursor " onclick="closeModal() ">&times;</span>
+        <div class="modal-content ">
 
+            <div class="mySlides ">
+                <div class="numbertext ">¡Con el pueblo todo, sin el pueblo nada!</div>
+                <img src="img/29052022a.jpg  " style="width:100% " width="600 " height="400 " alt=" " class=" responsive  img" loading="lazy " class="lazyload ">
+            </div>
+
+            <div class="mySlides ">
+                <div class="numbertext ">¡Con el pueblo todo, sin el pueblo nada!</div>
+                <img src="img/29052022b.jpg " style="width:100% " width="600 " height="400 " alt=" " class=" responsive  img" loading="lazy " class="lazyload ">
+            </div>
+
+            <div class="mySlides ">
+                <div class="numbertext ">¡Con el pueblo todo, sin el pueblo nada!</div>
+                <img src="img/29052022c.jpg " style="width:100% " width="600 " height="400 " alt=" " class=" responsive  img" loading="lazy " class="lazyload ">
+            </div>
+
+            <div class="mySlides ">
+                <div class="numbertext ">¡Con el pueblo todo, sin el pueblo nada!</div>
+                <img src="img/29052022c.jpg " style="width:100% " width="600 " height="400 " alt=" " class=" responsive  img" loading="lazy " class="lazyload ">
+            </div>
+
+            <div class="mySlides ">
+                <div class="numbertext ">Avatar</div>
+                <img src="img/twitter-avatar.jpg" style="width:100% " width="600 " height="400 " alt=" " class=" responsive  img" loading="lazy " class="lazyload ">
+            </div>
+
+            <div class="mySlides ">
+                <div class="numbertext ">Avatar</div>
+                <img src="img/preview.jpg " style="width:100% " width="600 " height="400 " alt=" " class=" responsive  img" loading="lazy " class="lazyload ">
+            </div>
+
+
+
+
+            <a class="prev " onclick="plusSlides(-1) ">&#10094;</a>
+            <a class="next " onclick="plusSlides(1) ">&#10095;</a>
+
+            <div class="caption-container ">
+                <p id="caption "></p>
+            </div>
+
+
+
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            document.getElementById("myModal ").style.display = "block ";
+        }
+
+        function closeModal() {
+            document.getElementById("myModal ").style.display = "none ";
+        }
+
+        var slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("mySlides ");
+            var dots = document.getElementsByClassName("demo ");
+            var captionText = document.getElementById("caption ");
+            if (n > slides.length) {
+                slideIndex = 1
+            }
+            if (n < 1) {
+                slideIndex = slides.length
+            }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none ";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active ", " ");
+            }
+            slides[slideIndex - 1].style.display = "block ";
+            dots[slideIndex - 1].className += " active ";
+            captionText.innerHTML = dots[slideIndex - 1].alt;
+        }
+    </script>
+
+    <script>
+        // Script to open and close sidebar
+        function w3_open() {
+            document.getElementById("mySidebar ").style.display = "block ";
+            document.getElementById("myOverlay ").style.display = "block ";
+        }
+
+        function w3_close() {
+            document.getElementById("mySidebar ").style.display = "none ";
+            document.getElementById("myOverlay ").style.display = "none ";
+        }
+    </script>
 
     <script>
         function openSocial(evt, socialName) {
